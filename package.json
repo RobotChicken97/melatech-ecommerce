@@ -1,0 +1,25 @@
+{
+  "name": "melatech-ecommerce",
+  "version": "1.0.0",
+  "description": "MelaTech E-Commerce App",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node backend/server"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/RobotChicken97/melatech-ecommerce.git"
+  },
+  "author": "Emmanuel Obot",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/RobotChicken97/melatech-ecommerce/issues"
+  },
+  "homepage": "https://github.com/RobotChicken97/melatech-ecommerce#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "prettier": "^2.2.1",
+    "save": "^2.4.0"
+  }
+}
