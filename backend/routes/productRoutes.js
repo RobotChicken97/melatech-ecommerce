@@ -1,6 +1,5 @@
 import express from "express";
 import asyncHandler from "express-async-handler";
-import products from "../data/products.js";
 const router = express.Router();
 import Product from "../models/productModel.js";
 
@@ -29,3 +28,5 @@ router.get(
     }
   })
 );
+
+export default router;
