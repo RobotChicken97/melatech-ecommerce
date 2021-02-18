@@ -5,6 +5,7 @@ const router = express.Router();
 
 import {
   authUser,
+  deleteUser,
   getUserProfile,
   getUsers,
   registerUser,
@@ -18,5 +19,7 @@ router
   .route("/profile")
   .get(protect, getUserProfile)
   .put(protect, updateUserProfile);
+
+router.route("/:id").delete(protect, checkAdmin, deleteUser);
 
 export default router;

@@ -17,6 +17,9 @@ import {
   USER_LIST_ADMIN_SUCCESS,
   USER_LIST_ADMIN_FAIL,
   USER_LIST_ADMIN_RESET,
+  USER_DELETE_ADMIN_REQUEST,
+  USER_DELETE_ADMIN_SUCCESS,
+  USER_DELETE_ADMIN_FAIL,
 } from "../constants/userConstants";
 import { ORDER_LIST_USER_RESET } from "../constants/orderConstants";
 import axios from "axios";
@@ -182,6 +185,35 @@ export const listUsersAdmin = () => async (dispatch, getState) => {
   } catch (error) {
     dispatch({
       type: USER_LIST_ADMIN_FAIL,
+      payload:
+        error.response && error.response.data.message
+          ? error.response.data.message
+          : error.message,
+    });
+  }
+};
+
+export const deleteUserAdmin = (id) => async (dispatch, getState) => {
+  try {
+    dispatch({
+      type: USER_DELETE_ADMIN_REQUEST,
+    });
+
+    const {
+      userLogin: { userInfo },
+    } = getState();
+    const config = {
+      headers: {
+        Authorization: `Bearer ${userInfo.token}`,
+      },
+    };
+    const { data } = await axios.delete(`/api/users/${id}`, config);
+    dispatch({
+      type: USER_DELETE_ADMIN_SUCCESS,
+    });
+  } catch (error) {
+    dispatch({
+      type: USER_DELETE_ADMIN_FAIL,
       payload:
         error.response && error.response.data.message
           ? error.response.data.message
