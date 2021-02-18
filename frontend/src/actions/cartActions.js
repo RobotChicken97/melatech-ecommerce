@@ -45,3 +45,7 @@ export const savePaymentMethod = (data) => (dispatch) => {
   });
   localStorage.setItem("paymentMethod", JSON.stringify(data));
 };
+
+export const addDecimals = (num) => {
+  return (Math.round(num * 100) / 100).toFixed(2);
+};
