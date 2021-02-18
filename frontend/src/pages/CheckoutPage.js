@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Form, Button, Row, Col } from "react-bootstrap";
+import { Form, Button } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import FormContainer from "../components/FormContainer";
 import CheckoutSteps from "../components/CheckoutSteps";
@@ -18,7 +18,7 @@ const CheckoutPage = ({ history }) => {
   const submitHandler = (e) => {
     e.preventDefault();
     dispatch(saveDeliveryAddress({ address, city, zipCode, country }));
-    history.push("/payment");
+    history.push("/login?redirect=payment");
   };
   return (
     <FormContainer>
@@ -66,7 +66,7 @@ const CheckoutPage = ({ history }) => {
           />
         </Form.Group>
         <Button type={"submit"} variant={"primary"}>
-          Continue To Payment
+          Continue
         </Button>
       </Form>
     </FormContainer>

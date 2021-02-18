@@ -27,11 +27,16 @@ const ProductPage = ({ history, match }) => {
   const addToCartHandler = () => {
     history.push(`/cart/${match.params.id}?qty=${qty}`);
   };
+
+  const goBackHandler = () => {
+    history.goBack();
+  };
+
   return (
     <>
-      <Link className={"btn btn-dark my-3"} to={"/"}>
+      <Button onClick={goBackHandler} className={"btn btn-dark my-3"}>
         Go Back
-      </Link>
+      </Button>
       {loading ? (
         <Loader />
       ) : error ? (
