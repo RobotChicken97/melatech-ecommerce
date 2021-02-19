@@ -42,7 +42,7 @@ const UserListPage = ({ history }) => {
     } else {
       history.push("/login");
     }
-  }, [dispatch, history, successDelete]);
+  }, [dispatch, history, successDelete, userInfo]);
   return (
     <>
       <h1>Users</h1>
@@ -77,7 +77,7 @@ const UserListPage = ({ history }) => {
                   )}
                 </td>
                 <td>
-                  <Link to={`/user/${user._id}/edit`}>
+                  <Link to={`/admin/user/${user._id}/edit`}>
                     <Button variant={"light"} className={"btn-sm"}>
                       <i className={"fas fa-edit"} />
                     </Button>
