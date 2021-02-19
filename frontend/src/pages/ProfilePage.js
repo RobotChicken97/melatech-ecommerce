@@ -7,6 +7,7 @@ import { getUserDetails, updateUserProfile } from "../actions/userActions";
 import { listUserOrders } from "../actions/orderActions";
 import * as PropTypes from "prop-types";
 import { Link } from "react-router-dom";
+import { USER_UPDATE_PROFILE_RESET } from "../constants/userConstants";
 
 class LinkContainer extends React.Component {
   render() {
@@ -42,7 +43,8 @@ const ProfilePage = ({ location, history }) => {
     if (!userInfo) {
       history.push("/login");
     } else {
-      if (!user.name) {
+      if (!user || !user.name || success) {
+        dispatch({ type: USER_UPDATE_PROFILE_RESET });
         dispatch(getUserDetails("profile"));
         dispatch(listUserOrders());
       } else {
@@ -50,7 +52,7 @@ const ProfilePage = ({ location, history }) => {
         setEmail(user.email);
       }
     }
-  }, [dispatch, history, userInfo, user, orderListUser]);
+  }, [dispatch, history, userInfo, user, success]);
 
   const submitHandler = (e) => {
     e.preventDefault();
