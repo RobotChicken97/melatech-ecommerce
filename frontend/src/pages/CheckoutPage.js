@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import FormContainer from "../components/FormContainer";
 import CheckoutSteps from "../components/CheckoutSteps";
 import { saveDeliveryAddress } from "../actions/cartActions";
+import { ORDER_DETAILS_RESET } from "../constants/orderConstants";
 
 const CheckoutPage = ({ history }) => {
   const cart = useSelector((state) => state.cart);
@@ -17,6 +18,7 @@ const CheckoutPage = ({ history }) => {
 
   const submitHandler = (e) => {
     e.preventDefault();
+
     dispatch(saveDeliveryAddress({ address, city, zipCode, country }));
     history.push("/login?redirect=payment");
   };

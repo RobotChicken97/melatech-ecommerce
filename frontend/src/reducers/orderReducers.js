@@ -59,7 +59,7 @@ export const orderDetailsReducer = (
         error: action.payload,
       };
     case ORDER_DETAILS_RESET:
-      return {};
+      return { orderItems: [], shippingAddress: {} };
     default:
       return state;
   }

@@ -24,7 +24,10 @@ import {
   USER_UPDATE_FAIL,
   USER_UPDATE_REQUEST,
 } from "../constants/userConstants";
-import { ORDER_LIST_USER_RESET } from "../constants/orderConstants";
+import {
+  ORDER_DETAILS_RESET,
+  ORDER_LIST_USER_RESET,
+} from "../constants/orderConstants";
 import axios from "axios";
 
 export const login = (email, password) => async (dispatch) => {
@@ -63,6 +66,7 @@ export const logout = () => (dispatch) => {
   dispatch({ type: USER_DETAILS_RESET });
   dispatch({ type: ORDER_LIST_USER_RESET });
   dispatch({ type: USER_LIST_ADMIN_RESET });
+  dispatch({ type: ORDER_DETAILS_RESET });
 };
 
 export const register = (name, email, password) => async (dispatch) => {

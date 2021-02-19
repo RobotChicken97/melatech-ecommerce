@@ -16,6 +16,7 @@ import {
   ORDER_DETAILS_RESET,
   ORDER_LIST_USER_RESET,
 } from "../constants/orderConstants";
+import { USER_DETAILS_RESET } from "../constants/userConstants";
 
 const CartPage = ({ match, location, history }) => {
   const productId = match.params.id;
