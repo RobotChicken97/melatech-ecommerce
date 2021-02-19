@@ -6,6 +6,11 @@ import CheckoutSteps from "../components/CheckoutSteps";
 import { Link } from "react-router-dom";
 import { createOrder } from "../actions/orderActions";
 import { addDecimals } from "../actions/cartActions";
+import { PRODUCT_CREATE_RESET } from "../constants/productConstants";
+import {
+  ORDER_DETAILS_RESET,
+  ORDER_LIST_USER_RESET,
+} from "../constants/orderConstants";
 
 const PlaceOrderPage = ({ history }) => {
   const dispatch = useDispatch();
@@ -31,7 +36,7 @@ const PlaceOrderPage = ({ history }) => {
     if (success) {
       history.push(`/order/${order._id}`);
     }
-  }, [history, success]);
+  }, [history, success, dispatch]);
 
   const placeOrderHandler = () => {
     dispatch(

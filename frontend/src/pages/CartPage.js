@@ -12,6 +12,10 @@ import {
 } from "react-bootstrap";
 import Message from "../components/Message";
 import { addToCart, removeFromCart } from "../actions/cartActions";
+import {
+  ORDER_DETAILS_RESET,
+  ORDER_LIST_USER_RESET,
+} from "../constants/orderConstants";
 
 const CartPage = ({ match, location, history }) => {
   const productId = match.params.id;

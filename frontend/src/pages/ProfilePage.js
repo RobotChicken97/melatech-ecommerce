@@ -50,7 +50,7 @@ const ProfilePage = ({ location, history }) => {
         setEmail(user.email);
       }
     }
-  }, [dispatch, history, userInfo, user]);
+  }, [dispatch, history, userInfo, user, orderListUser]);
 
   const submitHandler = (e) => {
     e.preventDefault();
